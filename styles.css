@@ -1,0 +1,131 @@
+/* Base styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: #333;
+}
+
+.container {
+  max-width: 1800px; /* INCREASED from 1200px to match new visualization size */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header styles */
+.header {
+  margin-bottom: 30px; /* INCREASED from 20px */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 28px; /* INCREASED from 24px */
+  color: #333;
+}
+
+/* Content layout */
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Visualization container */
+.viz-container {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* ADDED: subtle shadow for depth */
+}
+
+/* SVG styles */
+svg text {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.node-label {
+  text-anchor: middle;
+  pointer-events: none;
+  line-height: 1.2; /* INCREASED from 1.1 */
+}
+
+.node-label-domain {
+  font-weight: bold;
+  fill: white;
+  text-anchor: middle;
+  pointer-events: none;
+}
+
+.node-label-faculty {
+  font-size: 18px;
+  font-weight: bold;
+  fill: white;
+  text-anchor: middle;
+  pointer-events: none;
+}
+
+/* Legend styles */
+.legend {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px; /* INCREASED from 15px */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03); /* ADDED: subtle shadow for depth */
+}
+
+.legend-title {
+  font-weight: bold;
+  margin-bottom: 12px; /* INCREASED from 10px */
+  font-size: 18px; /* INCREASED from 16px */
+  width: 100%;
+}
+
+.legend-section {
+  margin-bottom: 18px; /* INCREASED from 15px */
+  width: 100%;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin: 6px 0; /* INCREASED from 5px */
+}
+
+.legend-color {
+  width: 24px; /* INCREASED from 20px */
+  height: 24px; /* INCREASED from 20px */
+  margin-right: 12px; /* INCREASED from 10px */
+  border-radius: 3px;
+}
+
+.legend-label {
+  font-size: 16px; /* INCREASED from 14px */
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .content {
+    flex-direction: row;
+  }
+  
+  .viz-container {
+    flex: 3;
+    margin-right: 20px;
+    margin-bottom: 0;
+  }
+  
+  .legend {
+    flex: 1;
+    margin-top: 0;
+  }
+}
