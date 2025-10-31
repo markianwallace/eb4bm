@@ -14,12 +14,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Configuration
     const config = {
       // Node appearance
-      nodeRadius: 12,              // INCREASED from 10 - Default node radius for researchers
+      nodeRadius: 15,              // INCREASED from 10 - Default node radius for researchers
       nodeBorderWidth: 1.5,        // INCREASED from 1 - Width of node border
       nodeBorderColor: "#fff",     // Color of node border
       
       // Layout parameters
-      centerRadius: 300,           // INCREASED from 300 - Radius for domain/challenge positions
+      centerRadius: 500,           // INCREASED from 300 - Radius for domain/challenge positions
       textPadding: 5,              // INCREASED from 4 - Padding for text backgrounds
       nodeSpacing: 20,             // INCREASED from 15 - Minimum space between researcher nodes
       randomOffsetRange: 0,      // INCREASED from 150 - Range of random offset for initial positions
@@ -31,20 +31,20 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Simulation parameters
       simulationAlpha: 0.1,          // Initial simulation alpha
-      simulationDecay: 0.2,      // DECREASED from 0.02 - Alpha decay rate (slower cooling)
-      linkDistance: 11,           // INCREASED from 110 - Distance between linked nodes
-      linkDistanceVariance: 70,    // INCREASED from 60 - Variance in link distances
+      simulationDecay: 0.01,      // DECREASED from 0.02 - Alpha decay rate (slower cooling)
+      linkDistance: 161,           // INCREASED from 110 - Distance between linked nodes
+      linkDistanceVariance: 60,    // INCREASED from 60 - Variance in link distances
       linkStrength: 0.15,          // Strength of link forces
-      chargeStrength: 0.1,         // Strength of charge forces
-      collisionStrength: 30,       // Strength of collision forces
-      domainForceStrength: 0.25,   // Force strength for researchers
-      fixedNodeForceStrength: 0.3, // Force strength for fixed nodes
+      chargeStrength: 1.5,         // Strength of charge forces
+      collisionStrength: 0.1,       // Strength of collision forces
+      domainForceStrength: 0.025,   // Force strength for researchers
+      fixedNodeForceStrength: 0.03, // Force strength for fixed nodes
       
       // Text parameters
-      domainLabelSize: 16,         // INCREASED from 14 - Font size for domain/challenge labels
-      themeLabelSize: 16,          // INCREASED from 14 - Font size for theme lead labels
-      researcherLabelSize: 14,     // INCREASED from 13 - Font size for researcher labels
-      labelLineHeight: 1.2,        // INCREASED from 1.1 - Line height for wrapped text
+      domainLabelSize: 20,         // INCREASED from 14 - Font size for domain/challenge labels
+      themeLabelSize: 20,          // INCREASED from 14 - Font size for theme lead labels
+      researcherLabelSize: 24,     // INCREASED from 13 - Font size for researcher labels
+      labelLineHeight: 1.5,        // INCREASED from 1.1 - Line height for wrapped text
       textBackgroundOpacity: 0.5,  // Opacity of text background rectangles
       textRenderDelay: 1000,       // Delay for text background rendering
       textWidthFactor: 1.8,        // Factor to determine text width from node radius
@@ -363,19 +363,19 @@ document.addEventListener('DOMContentLoaded', function() {
           wrapText(d3.select(this), getMaxTextWidth(d));
         });
       
-      // Add domain/challenge theme lead labels
-      nodeElements.filter(d => d.group === 2)
-        .append("text")
-        .attr("class", "node-label")
-        .attr("x", 0)
-        .attr("y", 20) // Restore original position
-        .attr("text-anchor", "middle")
-        .attr("fill", "white")
-        .style("font-size", config.themeLabelSize + "px") // Standardized theme lead font size
-        .text(d => d.desc)
-        .each(function(d) {
-          wrapText(d3.select(this), getMaxTextWidth(d));
-        });
+      // // Add domain/challenge theme lead labels
+      // nodeElements.filter(d => d.group === 2)
+      //   .append("text")
+      //   .attr("class", "node-label")
+      //   .attr("x", 0)
+      //   .attr("y", 20) // Restore original position
+      //   .attr("text-anchor", "middle")
+      //   .attr("fill", "white")
+      //   .style("font-size", config.themeLabelSize + "px") // Standardized theme lead font size
+      //   .text(d => d.desc)
+      //   .each(function(d) {
+      //     wrapText(d3.select(this), getMaxTextWidth(d));
+      //   });
       
       // Add researcher labels
       nodeElements.filter(d => d.group === 3)
