@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Simulation parameters
       simulationAlpha: 0.1,          // Initial simulation alpha
-      simulationDecay: 0.02,      // DECREASED from 0.02 - Alpha decay rate (slower cooling)
+      simulationDecay: 0.2,      // DECREASED from 0.02 - Alpha decay rate (slower cooling)
       linkDistance: 11,           // INCREASED from 110 - Distance between linked nodes
       linkDistanceVariance: 70,    // INCREASED from 60 - Variance in link distances
       linkStrength: 0.15,          // Strength of link forces
